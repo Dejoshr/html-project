@@ -11,3 +11,12 @@ h2{
 h1{
   color: #dacb93;
 }
+.welcome{
+  text-align: center;
+}
+.image{
+  margin-left: 480px;
+}
+.border{
+  border: solid
+}
