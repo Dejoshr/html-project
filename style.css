@@ -5,21 +5,29 @@
 h2{
   color: #e6d67d;
 }
-.link{
-  color: #dacb93;
-}
 h1{
   color: #dacb93;
-}
-.welcome{
-  text-align: center;
 }
 .image{
   margin-left: 480px;
 }
+.greet{
+  background-color: #212934;
+}
 .border{
-  border: solid
+  padding: 20px;
+  text-align: center;
+  background-color: #212934;
+  border: solid;
 }
 .movies{
   color: #a8c7db;
+}
+.contact{
+  padding: 20px;
+  background-color: #212934;
+  border: solid;
+}
+.link{
+  color: #dacb93;
 }
