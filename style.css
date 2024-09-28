@@ -1,6 +1,6 @@
-*{
+body{
   background-color: #4a6a5b;
-  color:ghostwhite
+  color: #adb5bd;
 }
 h2{
   color: #e6d67d;
@@ -8,26 +8,66 @@ h2{
 h1{
   color: #dacb93;
 }
-.image{
-  margin-left: 480px;
+.img{
+  margin-left: 420px;
+  border: solid aliceblue;
 }
-.greet{
+.img2{
+  margin-left: 550px;
+  border: solid aliceblue;
+}
+.img3{
+  margin-left: 500px;
+  border: solid aliceblue;
+}
+.one{
+  border: solid #e6d67d 5px;
+}
+.first{
+  border: solid;
+  padding: 20px;
   background-color: #212934;
 }
 .border{
+  padding: 20px;
+  background-color: #212934;
+  border: solid;
+  text-align: center;
+}
+.movies{
+  color: #a8c7db;
+  font-size: 25px;
+}
+.menu{
+  color: #dacb93;
+  font-size: 20px;
+}
+.box{
+  border: solid #a8c7db;
+  background-color: #212934;
+  padding: 10px;
+}
+.link{
+  color: #dacb93;
+}
+.label{
   padding: 20px;
   text-align: center;
   background-color: #212934;
   border: solid;
 }
-.movies{
-  color: #a8c7db;
-}
 .contact{
+  border: solid;
   padding: 20px;
   background-color: #212934;
-  border: solid;
 }
-.link{
-  color: #dacb93;
+.kanit-medium-italic {
+  font-family: "Kanit", sans-serif;
+  font-weight: 500;
+  font-style: italic;
+}
+.kanit-medium {
+  font-family: "Kanit", sans-serif;
+  font-weight: 500;
+  font-style: normal;
 }
