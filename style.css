@@ -2,6 +2,15 @@ body{
   background-color: #4a6a5b;
   color: #adb5bd;
 }
+.menu:hover{
+  color: aliceblue;
+}
+.link:hover{
+  color: aliceblue;
+}
+.movies:hover{
+  color: aliceblue;
+}
 h2{
   color: #e6d67d;
 }
