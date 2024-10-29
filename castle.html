@@ -1,0 +1,311 @@
+<!DOCTYPE html>
+<html lang="en">
+<!-- check this website out "https://tundesify.github.io/html--project/" -->
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Ghibli Studio</title>
+  <link rel="stylesheet" href="style.css" type="text/css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css"
+    integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg=="
+    crossorigin="anonymous" referrerpolicy="no-referrer" />
+  <link rel="shortcut icon" href="IMG/favicon.ico" type="image/x-icon">
+  <link href="data:image/x-icon;base64,AAABAAEAEBAQAAEABAAoAQAAFgAAACgAAAAQAAAAIAAAAAEABAAAAAAAgAAAAAAAAAAAAAAAEAAAAAAAAAAAAAAA////AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAEQARABEAAAEQEAABARAAARAQAAEBEAAAEQAAABEAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAADwDwAAwAMAAIABAAAAAAAAAAAAAAAAAAAAAAAAAAAAAIABAACBgQAAwYMAAMPDAADDwwAA5+cAAOfnAADv9wAA" rel="icon" type="image/x-icon">
+  <style>
+    .titlebar {
+      width: 100%;
+      height: 100%;
+      background-color: darkslategrey;
+      padding: 10px 5%;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      position: sticky;
+      top: 0%;
+      left: 0%;
+      right: 0%;
+      z-index: 99;
+      border-bottom: solid black 3px;
+    }
+    .logo {
+      align-items: center;
+      width: 250px;
+      height: 55px;
+    }
+    .nav-button {
+      color: white;
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+      padding: 0.5rem;
+      background-color: black;
+      border-radius: 0.25rem;
+      border: 0.1rem solid black;
+      font-weight: 600;
+      cursor: pointer;
+      position: relative;
+      transition: 0.5s;
+    }
+    .nav-button img {
+      width: 20px;
+    }
+    .nav-button span {
+      font-size: 1.1rem;
+    }
+    .nav-button:hover{
+      background-color: cadetblue;
+      border: solid cadetblue;
+    }
+
+    /* Dropdown Menu */
+    .menu {
+      display: none;
+      position: absolute;
+      top: 110%;
+      left: 0px;
+      right: 0px;
+      background-color: black;
+      padding: 10px 0;
+      text-align: center;
+      min-width: 100%;
+      transition: 0.5s;
+    }
+    .menu a {
+      color: white;
+      padding: 10px 20px;
+      text-decoration: none;
+      display: block;
+      white-space: nowrap;
+      transition: 0.5s;
+    }
+    .menu a:hover {
+      background-color: darkgray;
+    }
+
+    /* Show dropdown menu when hovering over nav-button */
+    .nav-button:hover .menu {
+      display: block;
+    }
+
+    /* Contacts-section */
+
+    footer{
+      position: relative;
+      width: 100%;
+      height: auto;
+      padding: 50px 100px;
+      background: #202223;
+    }
+
+    footer .container{
+      width: 100%;
+      display: inline-flex;
+      gap: 65px;
+    }
+
+    footer .container .profile h2{
+      position: relative;
+      color: whitesmoke;
+      font-weight: 600;
+      margin-bottom: 15px;
+    }
+
+    footer .container .profile p{
+      color: whitesmoke;
+      text-align: justify;
+    }
+
+    footer .container .sci{
+      margin-top: 20px;
+      display: grid;
+      grid-template-columns: repeat(4,50px);
+    }
+
+    footer .container .sci li{
+      list-style: none;
+    }
+
+    footer .container .sci li a{
+      display: inline-block;
+      width: 36px;
+      height: 36px;
+      background: #fff;
+      display: grid;
+      align-content: center;
+      justify-content: center;
+      text-decoration: none;
+      cursor: pointer;
+      border-radius: 50%;
+      transition: 0.5s;
+    }
+
+    footer .container .sci li a i{
+      color: #03071e;
+      font-size: 20px;
+    }
+
+
+    footer .container .sci li a:hover{
+      background: #e13062;
+    }
+
+    footer .container .links{
+      position: relative;
+    }
+
+    footer .container .links h2{
+      color: whitesmoke;
+      margin-bottom: 12px;
+    }
+
+    footer .container .links ul li{
+      list-style: none;
+    }
+
+    footer .container .links ul li a{
+      color: whitesmoke;
+      text-decoration: none;
+      margin-bottom: 15px;
+      display: inline-block;
+      transition: 0.5s;
+    }
+
+    footer .container .links ul li a:hover{
+      color: #e13062;
+    }
+
+    footer .container .contacts h2{
+      color: whitesmoke;
+      margin-bottom: 20px;
+    }
+
+    footer .container .contacts .number{
+      position: relative;
+    }
+
+    footer .container .contacts .number li{
+      display: grid;
+      grid-template-columns: 30px 1fr;
+      margin-bottom: 16px;
+      list-style: none;
+    }
+
+    footer .container .contacts .number li span{
+      color: whitesmoke;
+      font-size: 20px;
+    }
+
+    footer .container .contacts .number li p{
+      color: #a72f51;
+    }
+
+    footer .container .notice{
+      position: relative;
+    }
+
+    footer .container .notice img{
+      width: 35px;
+      margin-top: 0px;
+    }
+    
+    footer .container .notice p{
+      color: whitesmoke;
+      text-align: justify;
+      margin-left: 1px;
+      line-height: 25px;
+    }
+
+    .copyright{
+      width: 100%;
+      background: #202223;
+      padding: 20px 100px 30px;
+      text-align: center;
+      color: white;
+      border: 1px solid rgba(255, 255, 255, 0.1);
+    }
+
+    .copyright a{
+      color: #e6d67d;
+      font-size: medium;
+      cursor: pointer;
+      text-decoration: none;
+      transition: 0.5s;
+    }
+
+    .copyright a:hover{
+      color: #e13062;
+    }  
+
+  </style>
+</head>
+
+<body>
+  <div class="titlebar">
+    <img src="IMG/Logo-Ghibli-Studio.png" alt="logo" class="logo">
+    <div class="nav-button">
+      <img src="IMG/Menu.png" alt="Menu icon">
+      <span>Menu</span>
+      <div class="menu">
+        <a href="index.html">Home</a>
+        <a href="about.html">About</a>
+        <a href="index.html#film-section">Film</a>
+        <a href="contact.html">Contacts</a>
+      </div>
+    </div>
+  </div>
+
+<!-- contact section -->
+  
+<div class="footer">
+  <footer id="contacts">
+    <div class="container">
+      <div class="profile">
+        <h2>Joshua Aguila</h2>
+          <p>
+            I'm Joshua Aguila, a BSIT student passionate about growth in the tech field. Beyond academics, I enjoy reading, singing, and modeling as creative outlets. I'm especially interested in web design and continuously building my skills to create impactful, user-friendly digital experiences. 
+          </p>
+            <ul class="sci">
+              <li><a href="contact.html"><i class="fa-solid fa-user"></i></a></li>
+              <li><a href="https://www.facebook.com/theycallme.fj"><i class="fab fa-facebook"></i></a></li>
+              <li><a href="https://x.com/theycallme_fj"><i class="fab fa-twitter"></i></a></li>
+              <li><a href="https://www.instagram.com/theycallme_fj/"><i class="fab fa-instagram"></i></a></li>
+              <!-- <li><a href="https://www.tiktok.com/@hectic_lang?is_from_webapp=1&sender_device=pc"><i class="fab fa-tiktok"></i></a></li> -->
+            </ul>
+      </div>
+      <div class="links">
+        <h2>Website</h2>
+          <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="about.html">About</a></li>
+            <li><a href="index.html#film-section">Films</a></li>
+            <li><a href="contact.html">Contacts</a></li>
+          </ul>
+      </div>
+      <div class="contacts">
+        <h2>Contacts</h2>
+        <ul class="number">
+          <li>
+            <span><i class="fa-solid fa-phone"></i></span><p>+63 0905 458 4530</p>
+          </li>
+          <li>
+            <span><i class="fa-solid fa-envelope"></i></span><p>dejosher@gmail.com</p>
+          </li>
+        </ul>
+      </div>
+      <div class="notice">
+        <img src="IMG/Permission-logo.png">
+          <p>
+            Note: This website is for educational purposes only and is intended to provide information, resources, and activities to support learning and personal growth. All content is designed to enhance knowledge and skills in a safe, respectful environment.
+          </p>
+      </div>
+    </div>
+  </footer>
+</div>
+<div class="copyright">
+  <p>
+      &copy; 2024 <a href="index.html" class="link">GHIBLI.</a> All rights reserved. 
+      <a href="contact.html"class="link">Contact us</a>
+  </p>
+</div>
+</body>
+</html>

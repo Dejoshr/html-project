@@ -1,0 +1,1404 @@
+<!DOCTYPE html>
+<html lang="en">
+<!-- check this website out "https://tundesify.github.io/html--project/" -->
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Ghibli Studio</title>
+  <link rel="stylesheet" href="style.css" type="text/css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css"
+    integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg=="
+    crossorigin="anonymous" referrerpolicy="no-referrer" />
+  <link href="/IMG/favicon.ico" rel="icon" type="image/x-icon">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Kanit:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Playfair+Display&display=swap"
+    rel="stylesheet">
+  <link
+    href="data:image/x-icon;base64,AAABAAEAEBAQAAEABAAoAQAAFgAAACgAAAAQAAAAIAAAAAEABAAAAAAAgAAAAAAAAAAAAAAAEAAAAAAAAAAAAAAA////AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAEQARABEAAAEQEAABARAAARAQAAEBEAAAEQAAABEAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAADwDwAAwAMAAIABAAAAAAAAAAAAAAAAAAAAAAAAAAAAAIABAACBgQAAwYMAAMPDAADDwwAA5+cAAOfnAADv9wAA"
+    rel="icon" type="image/x-icon">
+  <style>
+    .titlebar {
+      width: 100%;
+      height: 100%;
+      background-color: darkslategrey;
+      padding: 10px 5%;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      position: sticky;
+      top: 0;
+      left: 0;
+      right: 0;
+      z-index: 99;
+      border-bottom: solid black 3px;
+      flex-wrap: wrap;
+    }
+
+    .logo {
+      align-items: center;
+      width: 250px;
+      height: 55px;
+      max-width: 100%;
+      height: auto;
+    }
+
+    .nav-button {
+      color: white;
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+      padding: 0.5rem;
+      background-color: black;
+      border-radius: 0.25rem;
+      border: 0.1rem solid black;
+      font-weight: 600;
+      cursor: pointer;
+      position: relative;
+      transition: 0.5s;
+    }
+
+    .nav-button img {
+      width: 20px;
+    }
+
+    .nav-button span {
+      font-size: 1.1rem;
+    }
+
+    .nav-button:hover {
+      background-color: cadetblue;
+      border: solid cadetblue;
+    }
+
+    /* Dropdown Menu */
+
+    .menu {
+      display: none;
+      position: absolute;
+      top: 110%;
+      left: 0;
+      right: 0;
+      background-color: black;
+      padding: 10px 0;
+      text-align: center;
+      min-width: 100%;
+      transition: 0.5s;
+    }
+
+    .menu a {
+      color: white;
+      padding: 10px 20px;
+      text-decoration: none;
+      display: block;
+      transition: 0.5s;
+    }
+
+    .menu a:hover {
+      background-color: darkgray;
+    }
+
+    /* Show dropdown menu when hovering over nav-button */
+    .nav-button:hover .menu {
+      display: block;
+    }
+
+   /* hero-section */
+
+    .hero {
+      width: 100%;
+      height: 500px;
+      position: relative;
+      overflow: hidden;
+    }
+
+    #welcome {
+      filter: brightness(40%);
+      background-position: center;
+      background-attachment: fixed;
+      width: 100%;
+      height: auto;
+      object-fit: contain;
+      position: absolute;
+      flex-wrap: wrap;
+    }
+
+    .hero h1 {
+      flex-wrap: wrap;
+      position: absolute;
+      color: #e6d67d;
+      margin-top: 5%;
+      left: 40px;
+      font-size: 70px;
+    }
+
+    .hero h2 {
+      position: absolute;
+      color: whitesmoke;
+      margin-top: 10%;
+      left: 55px;
+    }
+
+    .hero p {
+      position: absolute;
+      color: whitesmoke;
+      margin-top: 13.4%;
+      left: 59px;
+      text-align: justify;
+      margin-right: 50px;
+    }
+
+    .hero h3 {
+      position: absolute;
+      color: whitesmoke;
+      margin-top: 19.5%;
+      left: 59px;
+      text-align: justify;
+      margin-right: 50px;
+    }
+
+    .hero button {
+      padding: 5px;
+      border: solid 2px whitesmoke;
+      border-radius: 5px;
+      background: none;
+      position: absolute;
+      color: whitesmoke;
+      margin-top: 23%;
+      left: 59px;
+      text-align: center;
+      margin-right: 50px;
+      font-size: large;
+      font-weight: 600;
+      width: 10%;
+      cursor: pointer;
+      transition: 0.5s;
+    }
+
+    .hero button:hover {
+      padding: 5px;
+      border: solid 2px white;
+      border-radius: 5px;
+      background: none;
+      background-color: whitesmoke;
+      position: absolute;
+      color: #343a40;
+      margin-top: 23%;
+      left: 59px;
+      text-align: center;
+      margin-right: 50px;
+      font-size: large;
+      cursor: pointer;
+    }
+
+  /* feature */
+
+    .feature {
+      width: 100%;
+      height: 865px;
+      position: relative;
+      overflow: hidden;
+    }
+
+    #video-background {
+      position: absolute;
+      inset: 0;
+      z-index: 0;
+    }
+
+    #video {
+      position: relative;
+      margin-left: 12.5%;
+      margin-top: 35px;
+      display: block;
+      width: 75%;
+      height: 450px;
+      border-radius: 1rem;
+      object-fit: cover;
+    }
+
+    .feature-title {
+      position: absolute;
+      top: 6%;
+      left: 15.9%;
+      color: #e6d67d;
+      font-size: 35px;
+      font-weight: 800;
+      font-family: Arial, sans-serif;
+    }
+
+    .kiki-feature {
+      position: absolute;
+      top: 12.5%;
+      left: 15.5%;
+    }
+
+    #kiki-ft {
+      position: absolute;
+      top: 34.5%;
+      left: 15.9%;
+      color: whitesmoke;
+      font-size: larger;
+    }
+
+    #kiki-list {
+      position: absolute;
+      top: 41.9%;
+      left: 15%;
+      color: white;
+      display: flex;
+      font-size: small;
+
+    }
+
+    #kiki-list li {
+      list-style: none;
+      margin: 0 15px;
+    }
+
+    #kiki-but {
+      align-items: center;
+      position: absolute;
+      border: goldenrod solid 3px;
+      border-radius: 5px;
+      background-color: goldenrod;
+      color: black;
+      padding: 2px 5px;
+      font-size: large;
+      text-align: center;
+      width: 9%;
+      top: 46.9%;
+      left: 15.9%;
+      cursor: pointer;
+      transition: 0.5s;
+    }
+
+    #kiki-but:hover {
+      align-items: center;
+      position: absolute;
+      border: #343a40 solid 3px;
+      border-radius: 5px;
+      background-color: #343a40;
+      color: whitesmoke;
+      padding: 2px 5px;
+      font-size: large;
+      text-align: center;
+      width: 9%;
+      top: 46.9%;
+      left: 15.9%;
+      cursor: pointer;
+    }
+
+    .category {
+      display: inline-flex;
+      justify-content: space-between;
+      margin-top: 2%;
+    }
+
+    .card1 {
+      background-color: #03071e;
+      display: flex;
+      justify-content: space-between;
+      width: 556px;
+      height: 305px;
+      border-radius: 0.7rem;
+      position: relative;
+      margin-left: 16.6%;
+    }
+
+    .card2 {
+      background-color: #03071e;
+      display: flex;
+      justify-content: space-between;
+      width: 556px;
+      height: 305px;
+      border-radius: 0.7rem;
+      position: relative;
+      margin-left: 30px;
+    }
+
+    .ft2,
+    .ft3 {
+      border-radius: 5px;
+      width: 250px;
+      height: 345px;
+      margin: 0 250px;
+    }
+
+    #ft2 {
+      float: left;
+      left: 4%;
+      margin-top: 5%;
+      position: absolute;
+      width: 190px;
+      height: 250px;
+      align-items: center;
+    }
+
+    #ft3 {
+      float: left;
+      left: 4%;
+      margin-top: 5%;
+      position: absolute;
+      width: 190px;
+      height: 250px;
+      align-items: center;
+    }
+
+    #ft2h {
+      position: absolute;
+      color: #e6d67d;
+      top: 5.5%;
+      left: 41.5%;
+      font-size: x-large;
+    }
+
+    #ft2p {
+      position: absolute;
+      color: whitesmoke;
+      top: 15.5%;
+      left: 38%;
+      text-align: justify;
+      font-size: 15px;
+      padding: 10px 20px;
+      width: 61%;
+      height: 25px;
+      line-height: 190%;
+      font-family: 'Trebuchet MS';
+    }
+
+    #howl-list {
+      position: absolute;
+      color: whitesmoke;
+      list-style: none;
+      display: inline-flex;
+      top: 66.5%;
+      left: 39.5%;
+      font-family: 'Trebuchet MS';
+      font-size: 12px;
+      font-weight: 700;
+    }
+
+    #howl-list li {
+      list-style: none;
+      margin: 0 10px;
+    }
+
+    #howl-but {
+      position: absolute;
+      left: 58.9%;
+      top: 79.5%;
+      border: goldenrod solid 3px;
+      border-radius: 5px;
+      background-color: goldenrod;
+      color: black;
+      padding: 2px 5px;
+      font-size: medium;
+      text-align: center;
+      width: 17%;
+      align-items: center;
+      cursor: pointer;
+      transition: 0.5s;
+    }
+
+    #howl-but:hover {
+      position: absolute;
+      left: 58.9%;
+      top: 79.5%;
+      border: #343a40 solid 3px;
+      border-radius: 5px;
+      background-color: #343a40;
+      color: whitesmoke;
+      padding: 2px 5px;
+      font-size: medium;
+      text-align: center;
+      width: 17%;
+      align-items: center;
+      cursor: pointer;
+    }
+
+    #ft3h {
+      position: absolute;
+      color: #e6d67d;
+      top: 5.5%;
+      left: 41.5%;
+      font-size: x-large;
+    }
+
+    #ft3p {
+      position: absolute;
+      color: whitesmoke;
+      top: 15.5%;
+      left: 38%;
+      text-align: justify;
+      font-size: 14.5px;
+      padding: 10px 20px;
+      width: 61%;
+      height: 25px;
+      line-height: 190%;
+      font-family: 'Trebuchet MS';
+    }
+
+    #spirit-list {
+      position: absolute;
+      color: whitesmoke;
+      list-style: none;
+      display: inline-flex;
+      top: 66.5%;
+      left: 39.5%;
+      font-family: 'Trebuchet MS';
+      font-size: 12px;
+      font-weight: 700;
+    }
+
+    #spirit-list li {
+      list-style: none;
+      margin: 0 10px;
+    }
+
+    #spirit-but {
+      position: absolute;
+      left: 58.9%;
+      top: 79.5%;
+      border: goldenrod solid 3px;
+      border-radius: 5px;
+      background-color: goldenrod;
+      color: black;
+      padding: 2px 5px;
+      font-size: medium;
+      text-align: center;
+      width: 17%;
+      align-items: center;
+      cursor: pointer;
+      transition: 0.5s;
+    }
+
+    #spirit-but:hover {
+      position: absolute;
+      left: 58.9%;
+      top: 79.5%;
+      border: #343a40 solid 3px;
+      border-radius: 5px;
+      background-color: #343a40;
+      color: whitesmoke;
+      padding: 2px 5px;
+      font-size: medium;
+      text-align: center;
+      width: 17%;
+      align-items: center;
+      cursor: pointer;
+    }
+
+/* Filmography */
+
+    #film-section {
+      width: 100%;
+      height: 1090px;
+      position: relative;
+      overflow: hidden;
+      background-color: #03071e;
+    }
+
+    #filmography-title {
+      margin-bottom: 25px;
+      color: goldenrod;
+      font-size: 50px;
+      text-align: center;
+      justify-content: center;
+    }
+
+    .divider {
+      display: inline-flex;
+    }
+
+    .divider2 {
+      margin-top: 30px;
+      display: inline-flex;
+    }
+
+    #cotainer {
+      display: inline-flex;
+      justify-content: center;
+      min-height: 100vh;
+    }
+
+    .front {
+      margin-left: 48px;
+      position: relative;
+      width: 320px;
+      height: 450px;
+      border-radius: 10px;
+      overflow: hidden;
+      box-shadow: 0 15px 35px rgba(0, 0, 0, 0.25);
+    }
+
+    .front .poster {
+      position: relative;
+      overflow: hidden;
+      cursor: pointer;
+    }
+
+    .front .poster::before {
+      content: '';
+      position: absolute;
+      bottom: -180px;
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(0deg, #080051c0 50%, transparent);
+      transition: 0.5s;
+      z-index: 1;
+    }
+
+    .front:hover .poster::before {
+      bottom: 0px;
+    }
+
+    .front .poster img {
+      width: 100%;
+      transition: 0.5s;
+    }
+
+    .front:hover .poster img {
+      transform: translateY(-25px);
+      filter: blur(5px);
+    }
+
+    .front .details {
+      position: absolute;
+      width: 100%;
+      bottom: -500px;
+      left: 0;
+      z-index: 2;
+      padding: 20px;
+      transition: 0.5s;
+      cursor: pointer;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+    }
+
+
+    .front .details h3 {
+      font-size: 0.8em;
+      color: #fff;
+      margin: 0;
+    }
+
+    .front .details .rating {
+      position: relative;
+      padding: 5px 0;
+    }
+
+    .front .details .ratings .fa-star {
+      color: goldenrod;
+      font-size: 1em;
+      margin-top: 5px;
+    }
+
+    .front .details .ratings span {
+      color: whitesmoke;
+    }
+
+    .front .details .info {
+      color: whitesmoke;
+      margin-top: 6px;
+      line-height: 150%;
+      text-align: justify;
+    }
+
+    .filmb button {
+      margin-top: 10px;
+      border: goldenrod solid 3px;
+      border-radius: 5px;
+      background-color: goldenrod;
+      color: black;
+      transition: 0.5s;
+      margin-right: 1.5%;
+      font-size: medium;
+      width: 30%;
+      text-align: center;
+      cursor: pointer;
+      justify-content: center;
+    }
+
+    .filmb:hover button {
+      margin-top: 10px;
+      border: #343a40 solid 3px;
+      border-radius: 5px;
+      background-color: #343a40;
+      color: whitesmoke;
+    }
+
+    .front:hover .details {
+      bottom: 40px
+    }
+
+    .front .details .flogo {
+      max-width: 180px;
+    }
+
+    .flogo2 {
+      max-width: 160px;
+    }
+
+    .front .details .flogo2 {
+      max-width: 160px;
+      margin-bottom: 4px;
+    }
+
+    #action {
+      width: 100%;
+      height: 450px;
+      position: relative;
+      display: flex;
+      justify-content: center;
+      overflow: hidden;
+    }
+
+    .box {
+      display: flex;
+      justify-content: center;
+      width: 100%;
+      margin-top: 80px;
+      overflow: hidden;
+    }
+
+    .textbox {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 25px;
+    }
+
+    .textbox h2 {
+      text-align: center;
+      color: #e6d67d;
+      font-size: 60px;
+    }
+
+    .textbox p {
+      color: whitesmoke;
+      text-align: center;
+      font-size: 25px;
+    }
+
+    .wrapper .socmed:hover{
+      width: 200px;
+    }
+
+    .wrapper .socmed{
+      display: inline-block;
+      height: 60px;
+      width: 60px;
+      margin: 0px 30px;
+      overflow: hidden;
+      background: #fff;
+      border-radius: 50px;
+      cursor: pointer;
+      box-shadow: 0px 10px 10px rgba(0, 0, 0, 0.1);
+      transition: all 0.5s ease-out;
+      align-content: center;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .wrapper .socmed .icon{
+      text-align: center;
+      display: inline-block;
+      height: 60px;
+      width: 60px;
+      border-radius: 50px;
+      box-sizing: border-box;
+      line-height: 60px;
+      transition: all 0.5s ease-out;
+    }
+
+    .wrapper .socmed:nth-child(1):hover .icon{
+      background: #4267b2;
+    }
+
+    .wrapper .socmed:nth-child(2):hover .icon{
+      background: #1da1f2;
+    }
+
+    .wrapper .socmed:nth-child(3):hover .icon{
+      background: #e13062;
+    }
+
+    .wrapper .socmed:nth-child(4):hover .icon{
+      background: #ff0000;
+    }
+
+    .wrapper .socmed .icon i{
+      font-size: 25px;
+      line-height: 60px;
+      transition: all 0.5s ease-out;
+    }
+
+    .wrapper .socmed:hover .icon i{
+      color: #fff;
+    }
+
+    .wrapper .socmed span{
+      font-size: 20px;
+      font-weight: 500;
+      margin-left: 23px; 
+      align-content: center;
+      align-items: center;
+      justify-content: center;
+      display: inline-flex; 
+    }
+
+    .wrapper .socmed:nth-child(1):hover span{
+      color: #4267b2;
+    }
+
+    .wrapper .socmed:nth-child(2):hover span{
+      color: #1da1f2;
+    }
+
+    .wrapper .socmed:nth-child(3):hover span{
+      color: #e13062;
+    }
+
+    .wrapper .socmed:nth-child(4):hover span{
+      color: #ff0000;
+    }
+
+    .wrapper .socmed .icon i{
+      font-size: 25px;
+      line-height: 60px;
+      transition: all 0.5s ease-out;
+    }
+
+    .wrapper .socmed:hover .icon i{
+      color: #fff;
+    }
+
+  /* Contacts-section */
+
+    footer{
+      position: relative;
+      width: 100%;
+      height: auto;
+      padding: 50px 100px;
+      background: #202223;
+    }
+
+    footer .container{
+      width: 100%;
+      display: inline-flex;
+      gap: 65px;
+    }
+
+    footer .container .profile h2{
+      position: relative;
+      color: whitesmoke;
+      font-weight: 600;
+      margin-bottom: 15px;
+    }
+
+    footer .container .profile p{
+      color: whitesmoke;
+      text-align: justify;
+    }
+
+    footer .container .sci{
+      margin-top: 20px;
+      display: grid;
+      grid-template-columns: repeat(4,50px);
+    }
+
+    footer .container .sci li{
+      list-style: none;
+    }
+
+    footer .container .sci li a{
+      display: inline-block;
+      width: 36px;
+      height: 36px;
+      background: #fff;
+      display: grid;
+      align-content: center;
+      justify-content: center;
+      text-decoration: none;
+      cursor: pointer;
+      border-radius: 50%;
+      transition: 0.5s;
+    }
+
+    footer .container .sci li a i{
+      color: #03071e;
+      font-size: 20px;
+    }
+
+
+    footer .container .sci li a:hover{
+      background: #e13062;
+    }
+
+    footer .container .links{
+      position: relative;
+    }
+
+    footer .container .links h2{
+      color: whitesmoke;
+      margin-bottom: 12px;
+    }
+
+    footer .container .links ul li{
+      list-style: none;
+    }
+
+    footer .container .links ul li a{
+      color: whitesmoke;
+      text-decoration: none;
+      margin-bottom: 15px;
+      display: inline-block;
+      transition: 0.5s;
+    }
+
+    footer .container .links ul li a:hover{
+      color: #e13062;
+    }
+
+    footer .container .contacts h2{
+      color: whitesmoke;
+      margin-bottom: 20px;
+    }
+
+    footer .container .contacts .number{
+      position: relative;
+    }
+
+    footer .container .contacts .number li{
+      display: grid;
+      grid-template-columns: 30px 1fr;
+      margin-bottom: 16px;
+      list-style: none;
+    }
+
+    footer .container .contacts .number li span{
+      color: whitesmoke;
+      font-size: 20px;
+    }
+
+    footer .container .contacts .number li p{
+      color: #a72f51;
+    }
+
+    footer .container .notice{
+      position: relative;
+    }
+
+    footer .container .notice img{
+      width: 35px;
+      margin-top: 0px;
+    }
+    
+    footer .container .notice p{
+      color: whitesmoke;
+      text-align: justify;
+      margin-left: 1px;
+      line-height: 25px;
+    }
+
+    .copyright{
+      width: 100%;
+      background: #202223;
+      padding: 20px 100px 30px;
+      text-align: center;
+      color: white;
+      border: 1px solid rgba(255, 255, 255, 0.1);
+    }
+
+    .copyright a{
+      color: #e6d67d;
+      font-size: medium;
+      cursor: pointer;
+      text-decoration: none;
+      transition: 0.5s;
+    }
+
+    .copyright a:hover{
+      color: #e13062;
+    }  
+
+    .gradient-background {
+      background: linear-gradient(133deg, #3d348b, #03071e, #415a77, #0077b6);
+      background-size: 240% 240%;
+      animation: gradient-animation 40s ease infinite;
+    }
+
+    @keyframes gradient-animation {
+      0% {
+        background-position: 0% 50%;
+      }
+
+      50% {
+        background-position: 100% 50%;
+      }
+
+      100% {
+        background-position: 0% 50%;
+      }
+    }
+
+    .kanit-medium-italic {
+      text-align: center;
+      font-family: "Kanit", sans-serif;
+      font-weight: 500;
+      font-style: italic;
+    }
+
+    .kanit-medium {
+      font-size: large;
+      text-align: justify;
+      font-family: "Kanit", sans-serif;
+      font-weight: 500;
+      font-style: normal;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="titlebar">
+    <img src="IMG/Logo-Ghibli-Studio.png" alt="logo" class="logo" draggable="false">
+    <div class="nav-button">
+      <img src="IMG/Menu.png" alt="Menu-icon">
+      <span>Menu</span>
+      <div class="menu">
+        <a href="index.html">Home</a>
+        <a href="about.html">About</a>
+        <a href="#film-section">Films</a>
+        <a href="contact.html">Contacts</a>
+      </div>
+    </div>
+  </div>
+
+<!-- Hero Section -->
+
+  <div class="hero">
+    <img src="IMG/Welcome-page.jpg" alt="welcome" id="welcome">
+    <h1>WELCOME</h1>
+    <h2 class="kanit-medium-italic">
+      Welcome to the magical world of Studio Ghibli! 🌿✨
+    </h2>
+    <p class="kanit-medium">
+      Here, we celebrate the timeless stories, breathtaking animation, and enchanting worlds created by one of the most
+      beloved animation studios in history. From the peaceful countryside of My Neighbor Totoro to the whimsical
+      bathhouse of Spirited Away, join us as we explore the beauty, wonder, and heart of Studio Ghibli's unforgettable
+      films. Whether you're a long-time fan or a newcomer to these captivating tales, there's something here for
+      everyone.
+    </p>
+    <h3 class="kanit-medium-italic">
+      Step inside, and let your imagination take flight!🌸
+    </h3>
+    <button onclick="document.location='about.html'">Learn more</button>
+  </div>
+
+<!-- feature-section -->
+
+  <div class="feature">
+    <div id="video-background" class="gradient-background">
+      <video id="video" autoplay loop muted>
+        <source src="IMG/kiki.mp4" type="video/mp4">
+      </video>
+      <h2 class="feature-title">Featuring</h2>
+      <img src="IMG/kiki-feature.png" alt="logo" class="kiki-feature">
+      <p class="kanit-medium" id="kiki-ft">
+        A young witch named Kiki sets off to <br>
+        a seaside town to start her new life.
+      </p>
+      <ul id="kiki-list" class="kanit-medium">
+        <li>Directed by Hayao Miyazaki</li>
+        <li>Rated G</li>
+        <li>102 min</li>
+      </ul>
+      <button id="kiki-but" class="kanit-medium" onclick="document.location='kiki.html'">About</button>
+      <div class="category">
+        <div class="card1">
+          <div class="ft2">
+            <img src="IMG/howl-web.png" alt="how-ft" id="ft2">
+            <h3 id="ft2h" class="kanit-medium">Howl's Moving Castle</h3>
+            <p id="ft2p">
+              Sophie, a quiet girl working in a hat shop, finds her life thrown into turmoil when she is literally swept
+              off her feet by a handsome but mysterious wizard named Howl.
+            </p>
+            <ul id="howl-list">
+              <li>Directed by Hayao Miyazaki</li>
+              <li>Rated PG</li>
+              <li>119 min</li>
+            </ul>
+            <button id="howl-but" class="kanit-medium" onclick="document.location='howl.html'">About</button>
+          </div>
+        </div>
+        <div class="card2">
+          <div class="ft3">
+            <img src="IMG/Spirited-Away-Web.jpg" alt="spirited-away-ft" id="ft3">
+            <h3 id="ft3h" class="kanit-medium">Spirited Away</h3>
+            <p id="ft3p">
+              A young girl, Chihiro, becomes trapped in a strange new world of spirits. When her parents undergo a
+              mysterious transformation, she must call upon the courage she never knew she had to free her family.
+            </p>
+            <ul id="spirit-list">
+              <li>Directed by Hayao Miyazaki</li>
+              <li>Rated PG</li>
+              <li>125 min</li>
+            </ul>
+            <button id="spirit-but" class="kanit-medium" onclick="document.location='spirit.html'">About</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- film section -->
+
+  <div id="film-section">
+    <h1 id="filmography-title" class="kanit-medium">FILMOGRAPHY</h1>
+    <div class="divider">
+      <div id="container">
+        <div class="front">
+          <div class="poster">
+            <img src="IMG/ponyo-web-page.jpg" alt="ponyo">
+          </div>
+          <div class="details">
+            <img src="IMG/Ponyo_Logo.png" alt="ponyo" class="flogo">
+            <h3 class="kanit-medium">Directed by Hayao Miyazaki</h3>
+            <div class="ratings">
+              <i class="fa-solid fa-star"></i>
+              <i class="fa-solid fa-star"></i>
+              <i class="fa-solid fa-star"></i>
+              <i class="fa-solid fa-star"></i>
+              <i class="fa-regular fa-star"></i>
+              <span style="font-family: 'Trebuchet MS';">4/5</span>
+              <div class="info">
+                <p>
+                  A five-year-old boy develops a relationship with Ponyo, a young goldfish princess who longs to become
+                  a human after falling in love with him.
+                </p>
+              </div>
+              <div class="filmb">
+                <button class="kanit-medium" onclick="document.location='ponyo.html'">About</button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- My Neighbor Totoro -->
+
+      <div id="container">
+        <div class="front">
+          <div class="poster">
+            <img src="IMG/Totoro-Web.jpg" alt="Totoro">
+          </div>
+          <div class="details">
+            <img src="IMG/totoro-logo.png" alt="Totoro" class="flogo2">
+            <h3 class="kanit-medium">Directed by Hayao Miyazaki</h3>
+            <div class="ratings">
+              <i class="fa-solid fa-star"></i>
+              <i class="fa-solid fa-star"></i>
+              <i class="fa-solid fa-star"></i>
+              <i class="fa-solid fa-star"></i>
+              <i class="fa-regular fa-star"></i>
+              <span style="font-family: 'Trebuchet MS';">4/5</span>
+              <div class="info">
+                <p>
+                  When two girls move to the country to be near their ailing mother, they have adventures with the
+                  wondrous forest spirits who live nearby.
+                </p>
+              </div>
+              <div class="filmb">
+                <button class="kanit-medium" onclick="document.location='totoro.html'">About</button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Howl's Moving Castle -->
+
+      <div id="container">
+        <div class="front">
+          <div class="poster">
+            <img src="IMG/howl-web.png" alt="howl">
+          </div>
+          <div class="details">
+            <img src="IMG/howl-logo.jpg" alt="howl" class="flogo">
+            <h3 class="kanit-medium">Directed by Hayao Miyazaki</h3>
+            <div class="ratings">
+              <i class="fa-solid fa-star"></i>
+              <i class="fa-solid fa-star"></i>
+              <i class="fa-solid fa-star"></i>
+              <i class="fa-solid fa-star"></i>
+              <i class="fa-regular fa-star"></i>
+              <span style="font-family: 'Trebuchet MS';">4/5</span>
+              <div class="info">
+                <p>
+                  When an unconfident young woman is cursed with an old body by a spiteful witch, her only chance of
+                  breaking the spell lies with a self-indulgent yet insecure young wizard and his companions in his
+                  legged, walking castle.
+                </p>
+              </div>
+              <div class="filmb">
+                <button class="kanit-medium" onclick="document.location='howl.html'">About</button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Spirited-Away -->
+
+      <div id="container">
+        <div class="front">
+          <div class="poster">
+            <img src="IMG/Spirited-Away-Web.jpg" alt="Spirited-Away">
+          </div>
+          <div class="details">
+            <img src="IMG/Spirited-logo.png" alt="Spirited-Away" class="flogo">
+            <h3 class="kanit-medium">Directed by Hayao Miyazaki</h3>
+            <div class="ratings">
+              <i class="fa-solid fa-star"></i>
+              <i class="fa-solid fa-star"></i>
+              <i class="fa-solid fa-star"></i>
+              <i class="fa-solid fa-star"></i>
+              <i class="fa-regular fa-star"></i>
+              <span style="font-family: 'Trebuchet MS';">4/5</span>
+              <div class="info">
+                <p>
+                  During her family's move to the suburbs, a sullen 10-year-old girl wanders into a world ruled by gods,
+                  witches and spirits, and where humans are changed into beasts.
+                </p>
+              </div>
+              <div class="filmb">
+                <button class="kanit-medium" onclick="document.location='spirit.html'">About</button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- column2 -->
+    <!-- wind rises -->
+
+    <div class="divider2">
+      <div id="container">
+        <div class="front">
+          <div class="poster">
+            <img src="IMG/wind-web.jpg" alt="wind-rises">
+          </div>
+          <div class="details">
+            <img src="IMG/wind-logo.png" alt="wind-rises" class="flogo">
+            <h3 class="kanit-medium">Directed by Hayao Miyazaki</h3>
+            <div class="ratings">
+              <i class="fa-solid fa-star"></i>
+              <i class="fa-solid fa-star"></i>
+              <i class="fa-solid fa-star"></i>
+              <i class="fa-solid fa-star"></i>
+              <i class="fa-regular fa-star"></i>
+              <span style="font-family: 'Trebuchet MS';">4/5</span>
+              <div class="info">
+                <p>
+                  Jiro Horikoshi studies assiduously to fulfill his aim of becoming an aeronautical engineer. As WWII
+                  begins, fighter aircraft designed by him end up getting used by the Japanese Empire against its foes.
+                </p>
+              </div>
+              <div class="filmb">
+                <button class="kanit-medium" onclick="document.location='wind.html'">About</button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- kiki -->
+
+      <div id="container">
+        <div class="front">
+          <div class="poster">
+            <img src="IMG/kiki-web.jpg" alt="kiki">
+          </div>
+          <div class="details">
+            <img src="IMG/kiki-feature.png" alt="kiki" class="flogo2">
+            <h3 class="kanit-medium">Directed by Hayao Miyazaki</h3>
+            <div class="ratings">
+              <i class="fa-solid fa-star"></i>
+              <i class="fa-solid fa-star"></i>
+              <i class="fa-solid fa-star"></i>
+              <i class="fa-solid fa-star"></i>
+              <i class="fa-regular fa-star"></i>
+              <span style="font-family: 'Trebuchet MS';">4/5</span>
+              <div class="info">
+                <p>
+                  Along with her black cat Jiji, Kiki settles in a seaside town and starts a high-flying delivery
+                  service. Here begins her magical encounter with independence and responsibility, making lifelong
+                  friends and finding her place in the world.
+                </p>
+              </div>
+              <div class="filmb">
+                <button class="kanit-medium" onclick="document.location='kiki.html'">About</button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- castle in the sky -->
+
+      <div id="container">
+        <div class="front">
+          <div class="poster">
+            <img src="IMG/Castle-in-Sky-web.jpg" alt="castle">
+          </div>
+          <div class="details">
+            <img src="IMG/castle-logo.png" alt="Castle" class="flogo">
+            <h3 class="kanit-medium">Directed by Hayao Miyazaki</h3>
+            <div class="ratings">
+              <i class="fa-solid fa-star"></i>
+              <i class="fa-solid fa-star"></i>
+              <i class="fa-solid fa-star"></i>
+              <i class="fa-solid fa-star"></i>
+              <i class="fa-regular fa-star"></i>
+              <span style="font-family: 'Trebuchet MS';">4/5</span>
+              <div class="info">
+                <p>
+                  Pazu's life changes when he meets Sheeta, a girl whom pirates are chasing for her crystal amulet,
+                  which has the potential to locate Laputa, a legendary castle floating in the sky.
+                </p>
+              </div>
+              <div class="filmb">
+                <button class="kanit-medium" onclick="document.location='castle.html'">About</button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- The Secret World of Arrietty -->
+
+      <div id="container">
+        <div class="front">
+          <div class="poster">
+            <img src="IMG/arrietty-web.jpg" alt="Arrietty">
+          </div>
+          <div class="details">
+            <img src="IMG/arrietty-logo.png" alt="Arrietty" class="flogo">
+            <h3 class="kanit-medium">Directed by Hayao Miyazaki</h3>
+            <div class="ratings">
+              <i class="fa-solid fa-star"></i>
+              <i class="fa-solid fa-star"></i>
+              <i class="fa-solid fa-star"></i>
+              <i class="fa-solid fa-star"></i>
+              <i class="fa-regular fa-star"></i>
+              <span style="font-family: 'Trebuchet MS';">4/5</span>
+              <div class="info">
+                <p>
+                  The Clock family are four-inch-tall people who live anonymously in another family's residence,
+                  borrowing simple items to make their home. Life changes for the Clocks when their teenage daughter
+                  Arrietty is discovered.
+                </p>
+              </div>
+              <div class="filmb">
+                <button class="kanit-medium" onclick="document.location='arrietty.html'">About</button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Media Section -->
+
+  <div id="action" class="gradient-background">
+    <div class="box">
+      <div class="textbox">
+        <h2 class="kanit-medium">Updates</h2>
+        <p class="kanit-medium">
+          Stay updated with the latest information by following. <br>
+          Support Us.
+        </p>
+      <div class="wrapper">
+        <div class="socmed" onclick="document.location='https://www.facebook.com/GhibliUSA'">
+          <div class="icon"><i class="fab fa-facebook"></i></div>
+          <span>Facebook</span>
+        </div>
+        <div class="socmed" onclick="document.location='https://x.com/GhibliUSA'">
+          <div class="icon"><i class="fab fa-twitter"></i></div>
+          <span>Twitter</span>
+        </div>
+        <div class="socmed" onclick="document.location='https://www.instagram.com/ghibliusa?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw=='">
+          <div class="icon"><i class="fab fa-instagram"></i></div>
+          <span>Instagram</span>
+        </div>
+        <div class="socmed" onclick="document.location='https://www.youtube.com/@GKIDStv'">
+          <div class="icon"><i class="fab fa-youtube"></i></div>
+          <span>Youtube</span>
+        </div>
+      </div>
+      </div>
+    </div>
+  </div>
+
+<!-- contact section -->
+
+<div class="footer">
+  <footer id="contacts">
+    <div class="container">
+      <div class="profile">
+        <h2>Joshua Aguila</h2>
+          <p>
+            I'm Joshua Aguila, a BSIT student passionate about growth in the tech field. Beyond academics, I enjoy reading, singing, and modeling as creative outlets. I'm especially interested in web design and continuously building my skills to create impactful, user-friendly digital experiences. 
+          </p>
+            <ul class="sci">
+              <li><a href="contact.html"><i class="fa-solid fa-user"></i></a></li>
+              <li><a href="https://www.facebook.com/theycallme.fj"><i class="fab fa-facebook"></i></a></li>
+              <li><a href="https://x.com/theycallme_fj"><i class="fab fa-twitter"></i></a></li>
+              <li><a href="https://www.instagram.com/theycallme_fj/"><i class="fab fa-instagram"></i></a></li>
+              <!-- <li><a href="https://www.tiktok.com/@hectic_lang?is_from_webapp=1&sender_device=pc"><i class="fab fa-tiktok"></i></a></li> -->
+            </ul>
+      </div>
+      <div class="links">
+        <h2>Website</h2>
+          <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="about.html">About</a></li>
+            <li><a href="#film-section">Films</a></li>
+            <li><a href="contact.html">Contacts</a></li>
+          </ul>
+      </div>
+      <div class="contacts">
+        <h2>Contacts</h2>
+        <ul class="number">
+          <li>
+            <span><i class="fa-solid fa-phone"></i></span><p>+63 0905 458 4530</p>
+          </li>
+          <li>
+            <span><i class="fa-solid fa-envelope"></i></span><p>dejosher@gmail.com</p>
+          </li>
+        </ul>
+      </div>
+      <div class="notice">
+        <img src="IMG/Permission-logo.png">
+          <p>
+            Note: This website is for educational purposes only and is intended to provide information, resources, and activities to support learning and personal growth. All content is designed to enhance knowledge and skills in a safe, respectful environment.
+          </p>
+      </div>
+    </div>
+  </footer>
+</div>
+<div class="copyright">
+  <p>
+      &copy; 2024 <a href="index.html" class="link">GHIBLI.</a> All rights reserved. 
+      <a href="contact.html"class="link">Contact us</a>
+  </p>
+</div>
+
+</body>
+</html>

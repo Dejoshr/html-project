@@ -1,0 +1,471 @@
+<!DOCTYPE html>
+<html lang="en">
+<!-- check this website out "https://tundesify.github.io/html--project/" -->
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Ghibli Studio</title>
+  <link rel="stylesheet" href="style.css" type="text/css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css"
+    integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg=="
+    crossorigin="anonymous" referrerpolicy="no-referrer" />
+  <link href="/IMG/favicon.ico" rel="icon" type="image/x-icon">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Kanit:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Playfair+Display&display=swap"
+    rel="stylesheet">
+  <link
+    href="data:image/x-icon;base64,AAABAAEAEBAQAAEABAAoAQAAFgAAACgAAAAQAAAAIAAAAAEABAAAAAAAgAAAAAAAAAAAAAAAEAAAAAAAAAAAAAAA////AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAEQARABEAAAEQEAABARAAARAQAAEBEAAAEQAAABEAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAADwDwAAwAMAAIABAAAAAAAAAAAAAAAAAAAAAAAAAAAAAIABAACBgQAAwYMAAMPDAADDwwAA5+cAAOfnAADv9wAA"
+    rel="icon" type="image/x-icon">
+
+  <style>
+    .titlebar {
+      width: 100%;
+      height: 100%;
+      background-color: darkslategrey;
+      padding: 10px 5%;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      position: sticky;
+      top: 0%;
+      left: 0%;
+      right: 0%;
+      z-index: 99;
+      border-bottom: solid black 3px;
+    }
+    .logo {
+      align-items: center;
+      width: 250px;
+      height: 55px;
+    }
+    .nav-button {
+      color: white;
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+      padding: 0.5rem;
+      background-color: black;
+      border-radius: 0.25rem;
+      border: 0.1rem solid black;
+      font-weight: 600;
+      cursor: pointer;
+      position: relative;
+      transition: 0.5s;
+    }
+    .nav-button img {
+      width: 20px;
+    }
+    .nav-button span {
+      font-size: 1.1rem;
+    }
+    .nav-button:hover{
+      background-color: cadetblue;
+      border: solid cadetblue;
+    }
+
+    /* Dropdown Menu */
+    .menu {
+      display: none;
+      position: absolute;
+      top: 110%;
+      left: 0px;
+      right: 0px;
+      background-color: black;
+      padding: 10px 0;
+      text-align: center;
+      min-width: 100%;
+      transition: 0.5s;
+    }
+    .menu a {
+      color: white;
+      padding: 10px 20px;
+      text-decoration: none;
+      display: block;
+      white-space: nowrap;
+      transition: 0.5s;
+    }
+    .menu a:hover {
+      background-color: darkgray;
+    }
+
+    /* Show dropdown menu when hovering over nav-button */
+    .nav-button:hover .menu {
+      display: block;
+    }
+
+    /* Contacts-section */
+
+    footer{
+      position: relative;
+      width: 100%;
+      height: auto;
+      padding: 50px 100px;
+      background: #202223;
+    }
+
+    footer .container{
+      width: 100%;
+      display: inline-flex;
+      gap: 65px;
+    }
+
+    footer .container .profile h2{
+      position: relative;
+      color: whitesmoke;
+      font-weight: 600;
+      margin-bottom: 15px;
+    }
+
+    footer .container .profile p{
+      color: whitesmoke;
+      text-align: justify;
+    }
+
+    footer .container .sci{
+      margin-top: 20px;
+      display: grid;
+      grid-template-columns: repeat(4,50px);
+    }
+
+    footer .container .sci li{
+      list-style: none;
+    }
+
+    footer .container .sci li a{
+      display: inline-block;
+      width: 36px;
+      height: 36px;
+      background: #fff;
+      display: grid;
+      align-content: center;
+      justify-content: center;
+      text-decoration: none;
+      cursor: pointer;
+      border-radius: 50%;
+      transition: 0.5s;
+    }
+
+    footer .container .sci li a i{
+      color: #03071e;
+      font-size: 20px;
+    }
+
+
+    footer .container .sci li a:hover{
+      background: #e13062;
+    }
+
+    footer .container .links{
+      position: relative;
+    }
+
+    footer .container .links h2{
+      color: whitesmoke;
+      margin-bottom: 12px;
+    }
+
+    footer .container .links ul li{
+      list-style: none;
+    }
+
+    footer .container .links ul li a{
+      color: whitesmoke;
+      text-decoration: none;
+      margin-bottom: 15px;
+      display: inline-block;
+      transition: 0.5s;
+    }
+
+    footer .container .links ul li a:hover{
+      color: #e13062;
+    }
+
+    footer .container .contacts h2{
+      color: whitesmoke;
+      margin-bottom: 20px;
+    }
+
+    footer .container .contacts .number{
+      position: relative;
+    }
+
+    footer .container .contacts .number li{
+      display: grid;
+      grid-template-columns: 30px 1fr;
+      margin-bottom: 16px;
+      list-style: none;
+    }
+
+    footer .container .contacts .number li span{
+      color: whitesmoke;
+      font-size: 20px;
+    }
+
+    footer .container .contacts .number li p{
+      color: #a72f51;
+    }
+
+    footer .container .notice{
+      position: relative;
+    }
+
+    footer .container .notice img{
+      width: 35px;
+      margin-top: 0px;
+    }
+    
+    footer .container .notice p{
+      color: whitesmoke;
+      text-align: justify;
+      margin-left: 1px;
+      line-height: 25px;
+    }
+
+    .copyright{
+      width: 100%;
+      background: #202223;
+      padding: 20px 100px 30px;
+      text-align: center;
+      color: white;
+      border: 1px solid rgba(255, 255, 255, 0.1);
+    }
+
+    .copyright a{
+      color: #e6d67d;
+      font-size: medium;
+      cursor: pointer;
+      text-decoration: none;
+      transition: 0.5s;
+    }
+
+    .copyright a:hover{
+      color: #e13062;
+    }  
+
+    .gradient-background {
+      background: linear-gradient(133deg, #3d348b, #03071e, #415a77, #0077b6);
+      background-size: 240% 240%;
+      animation: gradient-animation 40s ease infinite;
+    }
+
+    @keyframes gradient-animation {
+      0% {
+        background-position: 0% 50%;
+      }
+
+      50% {
+        background-position: 100% 50%;
+      }
+
+      100% {
+        background-position: 0% 50%;
+      }
+    }
+
+    .kanit-medium-italic {
+      text-align: center;
+      font-family: "Kanit", sans-serif;
+      font-weight: 500;
+      font-style: italic;
+    }
+
+    .kanit-medium {
+      font-size: large;
+      text-align: justify;
+      font-family: "Kanit", sans-serif;
+      font-weight: 500;
+      font-style: normal;
+    }
+
+    /* Hero Section */
+
+    .hero {
+      width: 100%;
+      height: 500px;
+      position: relative;
+      overflow: hidden;
+    }
+
+    #welcome {
+      filter: brightness(40%);
+      background-position: center;
+      width: 100%;
+      height: 140%;
+      object-fit: cover;
+      position: absolute;
+      flex-wrap: wrap;
+    }
+
+    .hero h1 {
+      flex-wrap: wrap;
+      position: absolute;
+      color: #e6d67d;
+      margin-top: 11.5%;
+      left: 205px;
+      font-size: 120px;
+    }
+
+    /* About Studio Ghibli */
+
+    #about {
+      width: 100%;
+      min-height: 95vh;
+      background-position: right;
+      background-size: cover;
+      padding: 10px 10%;
+      overflow: hidden;
+      position: relative;
+      background-color: #03071e;
+    }
+
+    .box{
+      background-color: #024a71;
+      padding: 0px 50px 2px;
+      width: 55rem;
+      margin-top: 7%;
+      border-radius: 2rem;
+    }
+
+    .content {
+      margin-top: 7.6%;
+      max-width: 600px;
+    }
+
+    .content h1 {
+      padding-top: 20px;
+      font-size: 70px;
+      color: whitesmoke;
+    }
+
+    .content p {
+      line-height: 25px;
+      text-align: justify;
+      margin: 10px 0 30px;
+      color: whitesmoke;
+      line-height: 3.5vh;
+    }
+
+    .ftimg {
+      width: 530px;
+      height: 650px;
+      position: absolute;
+      top: 7.9%;
+      right: 10%;
+      border-radius: 45px;
+      z-index: 2;
+      transition: 0.5s;
+      object-fit: cover;
+    }
+
+    .ftimg:hover {
+      width: 535px;
+      height: 655px;
+      position: absolute;
+      bottom: 7%;
+      right: 10%;
+      border-radius: 45px;
+      z-index: 2;
+    }
+
+
+  </style>
+</head>
+
+<body>
+  <div class="titlebar">
+    <img src="IMG/Logo-Ghibli-Studio.png" alt="logo" class="logo">
+    <div class="nav-button">
+      <img src="IMG/Menu.png" alt="Menu icon">
+      <span>Menu</span>
+      <div class="menu">
+        <a href="index.html">Home</a>
+        <a href="about.html">About</a>
+        <a href="index.html#film-section">Film</a>
+        <a href="contact.html">Contacts</a>
+      </div>
+    </div>
+  </div>
+
+<!-- Hero Section -->
+
+<div class="hero">
+  <img src="IMG/About-Hero.png" alt="welcome" id="welcome">
+  <h1>About Us</h1>
+</div>
+
+<!-- About Section -->
+
+  <div id="about" class="gradient-background">
+   <div class="box">
+    <div class="content">
+      <h1>About,<br>Studio Ghibli</h1>
+      <p>
+        Studio Ghibli is one of the most acclaimed and influential animation studios in the world, inspiring filmmakers and audiences alike over the last 30 years with beloved stories and breathtaking visuals. Under the brilliance of visionary animation directors Hayao Miyazaki and Isao Takahata, and producer Toshio Suzuki, the studio’s films are known for timeless classics such as My Neighbor Totoro, Kiki’s Delivery Service, and Ponyo; and have won countless international awards including an Academy Award for Best Animated Feature for Spirited Away and The Boy and the Heron, as well as five additional Oscar® nominations for Howl’s Moving Castle, The Wind Rises, The Tale of The Princess Kaguya, When Marnie Was There, and The Red Turtle. Director and studio co-founder Hayao Miyazaki was separately given an Honorary Award at the Academy of Motion Picture Arts and Sciences’ Governors Awards in 2014, and the Academy Museum of Motion Pictures paid tribute to his artwork with a special exhibit when the Museum opened in September 2021.
+      </p>
+    </div>
+  </div>
+      <div class="div">
+        <img src="IMG/About-content1.jpg" alt="pfp" class="ftimg">
+      </div>
+  </div>
+ 
+ 
+ 
+
+<!-- contact section -->
+  
+<div class="footer">
+  <footer id="contacts">
+    <div class="container">
+      <div class="profile">
+        <h2>Joshua Aguila</h2>
+          <p>
+            I'm Joshua Aguila, a BSIT student passionate about growth in the tech field. Beyond academics, I enjoy reading, singing, and modeling as creative outlets. I'm especially interested in web design and continuously building my skills to create impactful, user-friendly digital experiences. 
+          </p>
+            <ul class="sci">
+              <li><a href="contact.html"><i class="fa-solid fa-user"></i></a></li>
+              <li><a href="https://www.facebook.com/theycallme.fj"><i class="fab fa-facebook"></i></a></li>
+              <li><a href="https://x.com/theycallme_fj"><i class="fab fa-twitter"></i></a></li>
+              <li><a href="https://www.instagram.com/theycallme_fj/"><i class="fab fa-instagram"></i></a></li>
+              <!-- <li><a href="https://www.tiktok.com/@hectic_lang?is_from_webapp=1&sender_device=pc"><i class="fab fa-tiktok"></i></a></li> -->
+            </ul>
+      </div>
+      <div class="links">
+        <h2>Website</h2>
+          <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="about.html">About</a></li>
+            <li><a href="index.html#film-section">Films</a></li>
+            <li><a href="contact.html">Contacts</a></li>
+          </ul>
+      </div>
+      <div class="contacts">
+        <h2>Contacts</h2>
+        <ul class="number">
+          <li>
+            <span><i class="fa-solid fa-phone"></i></span><p>+63 0905 458 4530</p>
+          </li>
+          <li>
+            <span><i class="fa-solid fa-envelope"></i></span><p>dejosher@gmail.com</p>
+          </li>
+        </ul>
+      </div>
+      <div class="notice">
+        <img src="IMG/Permission-logo.png">
+          <p>
+            Note: This website is for educational purposes only and is intended to provide information, resources, and activities to support learning and personal growth. All content is designed to enhance knowledge and skills in a safe, respectful environment.
+          </p>
+      </div>
+    </div>
+  </footer>
+</div>
+<div class="copyright">
+  <p>
+      &copy; 2024 <a href="index.html" class="link">GHIBLI.</a> All rights reserved. 
+      <a href="contact.html"class="link">Contact us</a>
+  </p>
+</div>
+</body>
+</html>
