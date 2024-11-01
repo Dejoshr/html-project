@@ -54,24 +54,37 @@
       position: relative;
       transition: 0.5s;
     }
+
     .nav-button img {
       width: 20px;
     }
+
     .nav-button span {
       font-size: 1.1rem;
     }
-    .nav-button:hover{
+
+    .nav-button:hover {
+      color: white;
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+      padding: 0.5rem;
       background-color: cadetblue;
-      border: solid cadetblue;
+      border-radius: 0.25rem;
+      border: 0.1rem solid cadetblue;
+      font-weight: 600;
+      cursor: pointer;
+      position: relative;
     }
 
     /* Dropdown Menu */
+
     .menu {
       display: none;
       position: absolute;
-      top: 110%;
-      left: 0px;
-      right: 0px;
+      top: 105%;
+      left: 0;
+      right: 0;
       background-color: black;
       padding: 10px 0;
       text-align: center;
